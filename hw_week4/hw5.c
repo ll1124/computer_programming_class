@@ -6,23 +6,23 @@ int flip();
 
 int main() {
  int i = 1;
- int heads;
+ int tails;
  srand(time(NULL));
 
  while (i <= 100) {
   if (flip() == 0) {
-    printf("Heads ");
-    heads += 1;
-  } else {
     printf("Tails ");
+    tails += 1;
+  } else {
+    printf("Heads ");
   }
   if (i % 10 == 0) {
     printf("\n");
   }
   i += 1;
 }
-  printf("The total number of Heads was %d\n", heads);
-  printf("The total number of Tails was %d", 100 - heads);
+  printf("\nThe total number of Heads was %d\n", 100 - tails);
+  printf("The total number of Tails was %d", tails);
 }
 
 int flip() {

@@ -17,15 +17,7 @@ int reverse(int x) {
   int result;
   int count;
 
-  if (x >= 1000) {
-    count = 3;
-  } else if (x >= 100) {
-    count = 2;
-  } else if (x >= 10) {
-    count = 1;
-  } else {
-    count = 0;
-  }
+  count = log10(x);
 
   for (size_t i = 0; i <= count; i++) {
     int cal;

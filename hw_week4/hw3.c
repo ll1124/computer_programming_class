@@ -12,7 +12,7 @@ int main(void) {
 }
 
 int ulcase (char x) {
-  if (x >= 'A' && x<= 'Z') {
+  if (x >= 'A' && x <= 'Z') {
     return 1;
   } else {
     return 0;

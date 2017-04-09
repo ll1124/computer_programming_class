@@ -3,24 +3,25 @@
 int perfect(int x);
 
 int main(void) {
-  int num;
+  int count = 1000;
+  printf("For the integers from 1 to 1000:\n");
 
-  printf("For the integers from 1 to 1000: ");
-  scanf("%d", &num);
-
-  if (perfect(num) == num) {
-    printf("%d is perfect", num);
+  for (size_t i = 1; i < count; i++) {
+    perfect(i);
   }
   return 0;
 }
 
 int perfect(int x) {
-  int cal;
+  int cal = 0;
 
   for (size_t i = 1; i < x; i++) {
     if (x % i == 0) {
       cal += i;
     }
   }
-  return cal;
+  if (cal == x) {
+    printf("%d is perfect\n", x);
+  }
+  return 0;
 }
