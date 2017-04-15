@@ -1,15 +1,16 @@
 #include<stdio.h>
 #define SIZE 50
 
-int testPalindromes(char arr[], int index);
+int testPalindromes(char arr[], int index, int initial);
 
 int main(void) {
 
   char arr[SIZE];
   char arr_temp[SIZE];
   int result;
+  int index = 0;
+  int initial = 0;
   int i;
-  int j;
 
   printf("Enter a sentence:\n");
   scanf("%[^\n]s", arr);
@@ -19,18 +20,7 @@ int main(void) {
     arr_temp[i] = arr[i];
   }
 
-  for (i = 0; arr_temp[i] != '\0'; i++) {
-    if (arr_temp[i] < 65 || arr_temp[i] > 122) {
-      for (j = i; arr_temp[j] != '\0'; j++) {
-        arr_temp[j] = arr_temp[j+1];
-        if (arr_temp[j+1] == '\0') { // for solving the problem where the sentence has more than one space.
-          i--;
-        }
-      }
-    }
-  }
-
-  result = testPalindromes(arr_temp, 0);
+  result = testPalindromes(arr_temp, index, initial);
 
   if (result == 1) {
     printf("\"%s\" is a palindrome", arr );
@@ -40,10 +30,25 @@ int main(void) {
   }
 }
 
-int testPalindromes(char arr[], int index) {
+int testPalindromes(char arr[], int index, int initial) {
 
   int i;
+  int j;
   int len = 0;
+
+  if (initial == 0) {
+    for (i = 0; arr[i] != '\0'; i++) {
+      if (arr[i] < 65 || arr[i] > 122) {
+        for (j = i; arr[j] != '\0'; j++) {
+          arr[j] = arr[j+1];
+          if (arr[j+1] == '\0') { // for solving the problem where the sentence has more than one space.
+            i--;
+          }
+        }
+      }
+    }
+    initial++;
+  }
 
   for (i = 0; arr[i] != '\0'; i++) {
     len++;
@@ -55,7 +60,7 @@ int testPalindromes(char arr[], int index) {
   {
     if (arr[index] == arr[len - index - 1]) {
       index ++;
-      return testPalindromes(arr, index);
+      return testPalindromes(arr, index, initial);
     } else
     {
       return 0;
