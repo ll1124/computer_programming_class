@@ -28,22 +28,20 @@ int correctTypo(char *str){
   }
 
  while ((ptr = strstr(str, "programiing"))) {
-   ptr[7] = 'm';
+   *(ptr+7) = 'm';
  }
 
  while ((ptr = strstr(str, "goad"))) {
-   ptr[2] = 'o';
+   *(ptr+2) = 'o';
  }
 
  while ((ptr = strstr(str, "exem"))) {
-   ptr[2] = 'a';
+   *(ptr+2) = 'a';
  }
 
  while ((ptr = strstr(tempStr, "hard"))) {
-   ptr[1] = 's';
+   *(ptr+1) = 's';
    num++;
  }
-
-
-  return num;
+ return num;
 }

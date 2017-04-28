@@ -28,14 +28,14 @@ int main(void) {
       scanf("%d %d", &a, &b );
 
       if (operation == 0) {
-        result = (func)[0](a, b);
-        printf("\n%d %c %d = %d\n\n", a, operator[0], b, result );
+        result = (*func)(a, b);
+        printf("\n%d %c %d = %d\n\n", a, *operator, b, result );
       } else if (operation == 1 ) {
-        result = (func)[1](a, b);
-        printf("\n%d %c %d = %d\n\n", a, operator[1], b, result );
+        result = (*(func+1))(a, b);
+        printf("\n%d %c %d = %d\n\n", a, *(operator+1), b, result );
       } else if (operation == 2) {
-        result = (func)[2](a, b);
-        printf("\n%d %c %d = %d\n\n", a, operator[2], b, result );
+        result = (*(func+2))(a, b);
+        printf("\n%d %c %d = %d\n\n", a, *(operator+2), b, result );
       }
     }
   } while(operation != 3);

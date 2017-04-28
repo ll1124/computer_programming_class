@@ -14,19 +14,12 @@ int main(void) {
 
   for (i = 0; i < size; i++) {
     arr[i] = rand() % 100 + 1;
-    printf("%d ", arr[i] );
+    printf("%d ", *(arr+i));
   }
   printf("\n");
-  inverseOrder(arr, size);
-  return 0;
-}
 
-
-void inverseOrder(int *arr, int size) {
-
-  if (size-1) {
-    size--;
-    inverseOrder(&arr[1], size);
+  for (i = 0; i < size; i++) {
+    printf("%d ", *(arr+size-i-1));
   }
-  printf("%d ", *arr );
+  return 0;
 }
