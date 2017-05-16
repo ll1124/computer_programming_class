@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
-int main() {
+int main(void) {
 
   int i, len, num = 5;
   char str[num][20];
@@ -23,5 +23,4 @@ int main() {
       }
     }
   }
-
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+int main(void) {
 
   int i, j, num = 10;
   char str[num][100];
@@ -13,7 +13,7 @@ int main() {
   }
 
   for (i = 0; i < num; i++) {
-    for (j = i; j < num - 1; j++) {
+    for (j = 0; j < num - i - 1; j++) {
       if ((strcmp(str[j], str[j+1])) > 0) {
         strcpy(temp, str[j]);
         strcpy(str[j], str[j+1]);
@@ -22,7 +22,7 @@ int main() {
     }
   }
 
-  printf("The strings in sorted order are:\n" );
+  printf("\nThe strings in sorted order are: \n" );
 
   for (i = 0; i < num; i++) {
     printf("%s\n", str[i]);

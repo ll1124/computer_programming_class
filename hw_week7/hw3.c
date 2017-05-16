@@ -2,9 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 
-int main() {
+int main(void) {
 
-  char str[120], *strPtn;
+  char str[240], *strPtn;
   char *token;
   int word[25] = {0};
   int num;
@@ -19,7 +19,7 @@ int main() {
   printf("Enter three lines of text:\n");
 
   for (i = 0; i < 3; i++) { // text inputs
-    fgets(strPtn, 40, stdin);
+    fgets(strPtn, 80, stdin);
     while (strPtn[0] != '\0') {
       strPtn++;
     }
@@ -41,6 +41,9 @@ int main() {
     word[num - 1]++;
     token = strtok(NULL, " " );
   }
+
+  printf("\n" );
+
   for (i = 0; i < 25; i++) {
     if (word[i] > 0) {
       printf("%d words of length %d\n", word[i], i+1 );
